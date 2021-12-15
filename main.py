@@ -6,10 +6,10 @@ import pandas as pd
 l1 = [1,2,3,4,5]
 l2 = [6,7,8,9,10]
 
-df1 = pd.DataFrame(l1)
+df1 = pd.read_csv("most_views_serial.csv")
 # print(df1.head())
-df1["seconds"]=l2
-print(df1.head())
+# df1["seconds"]=l2
+print(df1)
 # li = []
 # html_text = requests.get('https://www.youtube.com/playlist?list=PLirAqAtl_h2r5g8xGajEwdXd3x1sZh8hC').text
 # # print(html_text)

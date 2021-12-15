@@ -108,7 +108,7 @@ if rank==1:
                 x.append(i) 
             x.pop(1)
             # print(x)
-            df1.loc[len(df.index)]=x
+            df1.loc[len(df1.index)]=x
         except:
             continue
    
@@ -157,7 +157,7 @@ if rank==2:
                 x.append(i) 
             x.pop(1)
             # print(x)
-            df2.loc[len(df.index)]=x
+            df2.loc[len(df2.index)]=x
         except:
             continue
     print(df2.head())
@@ -203,7 +203,7 @@ if rank==3:
                 x.append(i) 
             x.pop(1)
             print(x)
-            df3.loc[len(df.index)]=x
+            df3.loc[len(df3.index)]=x
         except:
             continue
 

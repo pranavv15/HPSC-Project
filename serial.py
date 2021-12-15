@@ -21,33 +21,38 @@ for i in range(95):
     time.sleep(1)
     html.send_keys(Keys.PAGE_DOWN)
 
-# titles = driver.find_elements(By.ID, "video-title")
 links = [x.get_attribute('href') for x in driver.find_elements(By.ID,"video-title")]
-for link in links:
-    print(num)
-    num+=1
-    driver.get(link)
-    time.sleep(3)
-
-    names = driver.find_elements(By.ID, "info")
-    x = (names[2].text.split("\n"))
-    if(x[0][0]=='#'):
-        x.pop(0)
-    x.remove("DISLIKE")
-    x.remove("SHARE")
-    x.remove("SAVE")
-    # x.append(x[1].split("views")[i] for i in range(2))
-    s = x[1].split(' views')
-    for i in s:
-        x.append(i) 
-    x.pop(1)
-    df.loc[len(df.index)]=x
-    # print(df)
-    # time.sleep(random.choice(rate))
-
 print(len(links))
-end = time.time()
-print("The time taken is: ",end-start)
+
+for link in links:
+    try:
+        print(num)
+        num+=1
+        driver.get(link)
+        time.sleep(4)
+
+        names = driver.find_elements(By.ID, "info")
+        x = (names[2].text.split("\n"))
+        if(len(x)>6):
+            if(x[0][0]=='#'):
+                x.pop(0)
+        x.remove("DISLIKE")
+        x.remove("SHARE")
+        x.remove("SAVE")
+        s = x[1].split(' views')
+        for i in s:
+            x.append(i) 
+        x.pop(1)
+        # print(x)
+        df.loc[len(df.index)]=x
+    except:
+        continue
+# # print(df)
+# # time.sleep(random.choice(rate))
+
+# print(len(links))
+# end = time.time()
+# print("The time taken is: ",end-start)
 print(df.head())
 driver.quit()
 
@@ -60,28 +65,34 @@ for i in range(95):
     time.sleep(1)
     html.send_keys(Keys.PAGE_DOWN)
 links = [x.get_attribute('href') for x in driver.find_elements(By.ID,"video-title")]
-for link in links:
-    driver.get(link)
-    time.sleep(5)
 
-    names = driver.find_elements(By.ID, "info")
-    x = (names[2].text.split("\n"))
-    if(x[0][0]=='#'):
-        x.pop(0)
-    x.remove("DISLIKE")
-    x.remove("SHARE")
-    x.remove("SAVE")
-    # x.append(x[1].split("views")[i] for i in range(2))
-    s = x[1].split(' views')
-    for i in s:
-        x.append(i) 
-    x.pop(1)
-    time.sleep(random.choice(rate))
+ 
+for link in links:
+    try:
+        driver.get(link)
+        time.sleep(4)
+
+        names = driver.find_elements(By.ID, "info")
+        x = (names[2].text.split("\n"))
+        if(len(x)>6):
+            if(x[0][0]=='#'):
+                x.pop(0)
+        x.remove("DISLIKE")
+        x.remove("SHARE")
+        x.remove("SAVE")
+        s = x[1].split(' views')
+        for i in s:
+            x.append(i) 
+        x.pop(1)
+        # print(x)
+        df.loc[len(df.index)]=x
+    except:
+        continue
 
 print(len(links))
 driver.quit()
 
-######################################################################################
+# ######################################################################################
 
 driver = webdriver.Chrome(PATH)
 driver.get("https://www.youtube.com/playlist?list=PLirAqAtl_h2p57Njt3QJDtwxAPZENJrIp")
@@ -91,57 +102,65 @@ for i in range(95):
     html.send_keys(Keys.PAGE_DOWN)
 links = [x.get_attribute('href') for x in driver.find_elements(By.ID,"video-title")]
 for link in links:
-    driver.get(link)
-    time.sleep(5)
+    try:
+        driver.get(link)
+        time.sleep(4)
 
-    names = driver.find_elements(By.ID, "info")
-    x = (names[2].text.split("\n"))
-    if(x[0][0]=='#'):
-        x.pop(0)
-    x.remove("DISLIKE")
-    x.remove("SHARE")
-    x.remove("SAVE")
-    # x.append(x[1].split("views")[i] for i in range(2))
-    s = x[1].split(' views')
-    for i in s:
-        x.append(i) 
-    x.pop(1)
+        names = driver.find_elements(By.ID, "info")
+        x = (names[2].text.split("\n"))
+        if(len(x)>6):
+            if(x[0][0]=='#'):
+                x.pop(0)
+        x.remove("DISLIKE")
+        x.remove("SHARE")
+        x.remove("SAVE")
+        s = x[1].split(' views')
+        for i in s:
+            x.append(i) 
+        x.pop(1)
+        df.loc[len(df.index)]=x
+    except:
+        continue
 
-    time.sleep(random.choice(rate))
 print(len(links))
 driver.quit()
 
-###########################################################################################
+# ###########################################################################################
 
 driver = webdriver.Chrome(PATH)
 driver.get("https://www.youtube.com/playlist?list=PLirAqAtl_h2rTbOXU2Oc-7WBBHmFrnyUC")
 html = driver.find_element_by_tag_name("html")
 for i in range(95):
-    time.sleep(1)
+    time.sleep(5)
     html.send_keys(Keys.PAGE_DOWN)
 links = [x.get_attribute('href') for x in driver.find_elements(By.ID,"video-title")]
 for link in links:
-    driver.get(link)
-    time.sleep(5)
+    try:
+        driver.get(link)
+        time.sleep(4)
 
-    names = driver.find_elements(By.ID, "info")
-    x = (names[2].text.split("\n"))
-    if(x[0][0]=='#'):
-        x.pop(0)
-    x.remove("DISLIKE")
-    x.remove("SHARE")
-    x.remove("SAVE")
-    # x.append(x[1].split("views")[i] for i in range(2))
-    s = x[1].split(' views')
-    for i in s:
-        x.append(i) 
-    x.pop(1)
-    time.sleep(random.choice(rate))
+        names = driver.find_elements(By.ID, "info")
+        x = (names[2].text.split("\n"))
+        if(len(x)>6):
+            if(x[0][0]=='#'):
+                x.pop(0)
+        x.remove("DISLIKE")
+        x.remove("SHARE")
+        x.remove("SAVE")
+        s = x[1].split(' views')
+        for i in s:
+            x.append(i) 
+        x.pop(1)
+        df.loc[len(df.index)]=x
+    except:
+        continue
+
 
 print(len(links))
 driver.quit()
-# end = time.time()
-# print('Time taken is: ',end-start)
+end = time.time()
+print('Time taken is: ',end-start)
+df.to_csv("most_views_serial.csv")
 
 ################################################################################################################
 
